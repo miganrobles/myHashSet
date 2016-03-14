@@ -17,4 +17,16 @@ public class MiHashSet
     {
         set = new ArrayListInt();
     }
+    
+    /**
+     * add(int valor): añade el elemento al conjunto si no estaba. Devuelve verdadero en caso de que el elemento no estuviera presente en el conjunto y falso en caso contrario.
+     */
+    public boolean add(int valor)
+    {
+        boolean val = set.contains(valor);
+        if (!val) {
+            set.add(valor);
+        }
+        return !val;
+    }
 }
