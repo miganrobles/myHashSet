@@ -37,4 +37,12 @@ public class MiHashSet
     {
         set.clear();
     }
+    
+    /**
+     * Devuelve verdadero si el conjunto contiene el elemento, falso en caso contrario.
+     */
+    public boolean contains(int elemento)
+    {
+        return set.contains(elemento);
+    }
 }
