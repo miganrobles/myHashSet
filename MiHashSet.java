@@ -80,14 +80,34 @@ public class MiHashSet
      */
     public String toString()
     {
-        String cadena = "";
+        String cadena = "[";
         if (!set.isEmpty()) {
             cadena = "[" + set.get(0);
             for (int i = 1; i < size(); i++) {
-                cadena += "," + set.get(i);
+                cadena += ", " + set.get(i);
             }
-            cadena += "]";
         }
+        cadena += "]";
         return cadena;
+    }
+    
+    /**
+     * equals(MiHashSet otroConjunto): devuelve verdadero si el parámetro es igual al conjunto sobre el que se invoca y falso en otro caso
+     */
+    public boolean equals(MiHashSet otroConjunto)
+    {
+        boolean igual = false;
+        int elemento;
+        if (otroConjunto.size() == set.size()) {
+            igual = true;
+        }
+        
+        for (int i = 0; i < size(); i++) {
+            elemento = set.get(i);
+            if (!(otroConjunto.contains(elemento))) {
+                igual = false;
+            }
+        }
+        return igual;
     }
 }
