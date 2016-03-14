@@ -55,7 +55,7 @@ public class MiHashSet
     }
     
     /**
-     * remove(int elemento): elimina del conjunto el elemento dado. Si no existiera devuelve falso; si existía en el conjunto devuelve verdadero
+     * Elimina del conjunto el elemento dado. Si no existiera devuelve falso; si existía en el conjunto devuelve verdadero
      */
     public boolean remove(int elemento)
     {
@@ -67,4 +67,11 @@ public class MiHashSet
         return val;
     }
     
+    /**
+     * Devuelve el número de elementos del conjunto
+     */
+    public int size()
+    {
+        return set.size();
+    }
 }
