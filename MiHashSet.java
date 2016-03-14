@@ -59,10 +59,9 @@ public class MiHashSet
      */
     public boolean remove(int elemento)
     {
-        boolean val = set.contains(elemento);
+        boolean val = contains(elemento);
         if (val) {
-            int index = set.indexOf(elemento);
-            set.remove(index);
+            set.remove(set.indexOf(elemento));
         }
         return val;
     }
@@ -81,8 +80,8 @@ public class MiHashSet
     public String toString()
     {
         String cadena = "[";
-        if (!set.isEmpty()) {
-            cadena = "[" + set.get(0);
+        if (!isEmpty()) {
+            cadena += set.get(0);
             for (int i = 1; i < size(); i++) {
                 cadena += ", " + set.get(i);
             }
@@ -92,21 +91,17 @@ public class MiHashSet
     }
     
     /**
-     * equals(MiHashSet otroConjunto): devuelve verdadero si el parámetro es igual al conjunto sobre el que se invoca y falso en otro caso
+     * Devuelve verdadero si el parámetro es igual al conjunto sobre el que se invoca y falso en otro caso
      */
     public boolean equals(MiHashSet otroConjunto)
     {
-        boolean igual = false;
-        int elemento;
-        if (otroConjunto.size() == set.size()) {
-            igual = true;
-        }
-        
-        for (int i = 0; i < size(); i++) {
-            elemento = set.get(i);
-            if (!(otroConjunto.contains(elemento))) {
+        boolean igual = (otroConjunto.size() == size());
+        int index = 0;
+        while (igual && index < size()) {
+            if (!(otroConjunto.contains(set.get(index)))) {
                 igual = false;
             }
+            index++;
         }
         return igual;
     }
